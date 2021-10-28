@@ -1,6 +1,7 @@
 import pygame
 import random
 import math
+import time
 
 #initialise pygame
 pygame.init()
@@ -38,7 +39,7 @@ for i in range(num_of_enemies):
 bulletImg = pygame.image.load("bullet.png")
 bulletX = 0
 bulletY = 320
-bulletY_change = -5
+bulletY_change = -2
 bullet_state = "ready"
 
 #Score
@@ -81,9 +82,9 @@ while running:
         #push Key
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                playerX_change = -5
+                playerX_change = -1.5
             if event.key == pygame.K_RIGHT:
-                playerX_change = 5
+                playerX_change = 1.5
             if event.key == pygame.K_SPACE:
                 bulletX = playerX
                 fire_bullet(playerX, playerY)
@@ -97,7 +98,7 @@ while running:
 
     playerX += playerX_change
     for i in range(num_of_enemies):
-        enemyY[i] += 1
+        enemyY[i] += 0.4
 
         if enemyY[i] >= 400:
             enemyY[i] = 0
@@ -143,4 +144,5 @@ while running:
             bulletY = 320
             bullet_state = "Ready"
 
+    time.sleep(0.001)
     pygame.display.update()
