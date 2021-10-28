@@ -6,6 +6,6 @@ my first pygame application
 - run one of the two .py-files with python3
 
 
-## equirements
+## Requirements
 - Python3
 - pygame
